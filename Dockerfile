@@ -13,4 +13,4 @@ RUN apt-get update && apt-get install -y git unzip zip libaio-dev && unzip -o /t
      && echo 'umask 002' >> /root/.bashrc \
      && docker-php-ext-configure oci8 -with-oci8=instantclient,/usr/local/instantclient \
      && docker-php-ext-install oci8 \
-     && curl -sS https://getcomposer.org/installer | php --install-dir=/usr/local/bin --filename=composer && chmod +x /usr/local/bin/composer && chmod +x /usr/local/bin/composer
+     && curl -sS https://getcomposer.org/installer | php --install-dir=/usr/local/bin --filename=composer && chmod +x /usr/local/bin/composer
