@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y git unzip zip libaio-dev libxml2-dev \
      && docker-php-ext-configure oci8 -with-oci8=instantclient,/usr/local/instantclient \
      && docker-php-ext-install oci8 \
      && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && chmod +x /usr/local/bin/composer \
-     && docker-php-ext-install soap \
+     && docker-php-ext-install soap pdo sqlite3 pdo_sqlite \
      && pecl install xdebug \
      && docker-php-ext-enable xdebug \
      && docker-php-ext-install bcmath
