@@ -1,4 +1,4 @@
-FROM php:7.3-apache
+FROM php:5.6-apache
 MAINTAINER ruy.silva@engesoftware.com.br
 COPY ./oracle/. /tmp/.
 ENV LD_LIBRARY_PATH /usr/local/instantclient
@@ -17,6 +17,5 @@ RUN apt-get update && apt-get install -y git unzip zip libaio-dev libxml2-dev \
      && docker-php-ext-install oci8 \
      && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && chmod +x /usr/local/bin/composer \
      && docker-php-ext-install soap \
-     && pecl install xdebug \
-     && docker-php-ext-enable xdebug \
      && docker-php-ext-install bcmath
+RUN a2enmod rewrite
