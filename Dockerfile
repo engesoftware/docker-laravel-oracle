@@ -18,4 +18,5 @@ RUN apt-get update && apt-get install -y git unzip zip libaio-dev libxml2-dev \
      && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && chmod +x /usr/local/bin/composer \
      && docker-php-ext-install soap \
      && pecl install xdebug \
-     && docker-php-ext-enable xdebug
+     && docker-php-ext-enable xdebug \
+     && docker-php-ext-install bcmath
