@@ -2,7 +2,7 @@ FROM php:7.3-apache
 MAINTAINER ruy.silva@engesoftware.com.br
 COPY ./oracle/. /tmp/.
 ENV LD_LIBRARY_PATH /usr/local/instantclient
-RUN apt-get update && apt-get install -y git unzip zip libaio-dev libxml2-dev \
+RUN apt-get update && apt-get install -y git unzip zip libzip-dev libaio-dev libxml2-dev \
      && apt-get clean -y \
      && unzip -o /tmp/instantclient-basic-linux.x64-12.2.0.1.0.zip -d /usr/local/ \
      && unzip -o /tmp/instantclient-sdk-linux.x64-12.2.0.1.0.zip -d /usr/local/ \
@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y git unzip zip libaio-dev libxml2-dev \
      && docker-php-ext-configure oci8 -with-oci8=instantclient,/usr/local/instantclient \
      && docker-php-ext-install oci8 \
      && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && chmod +x /usr/local/bin/composer \
-     && docker-php-ext-install soap \
+     && docker-php-ext-configure zip -with-libzip \
+     && docker-php-ext-install soap zip\
      && pecl install xdebug \
      && docker-php-ext-enable xdebug \
      && docker-php-ext-install bcmath
