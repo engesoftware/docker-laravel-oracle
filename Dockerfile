@@ -1,4 +1,4 @@
-FROM php:7.3-apache
+FROM php:7.2-apache
 MAINTAINER ruy.silva@engesoftware.com.br
 COPY ./oracle/. /tmp/.
 ENV LD_LIBRARY_PATH /usr/local/instantclient
