@@ -19,3 +19,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN docker-php-ext-configure zip --with-libzip \
      && docker-php-ext-install soap zip bz2 bcmath
 RUN pecl install xdebug docker-php-ext-enable xdebug
+RUN a2enmod rewrite && service apache2 stop
