@@ -17,6 +17,6 @@ RUN unzip -o /tmp/instantclient-basic-linux.x64-12.2.0.1.0.zip -d /usr/local/ \
      && docker-php-ext-install oci8
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && chmod +x /usr/local/bin/composer
 RUN docker-php-ext-configure zip --with-libzip \
-     && docker-php-ext-install soap zip bz2 bcmath
+     && docker-php-ext-install soap zip bz2 bcmath gd
 RUN pecl install xdebug docker-php-ext-enable xdebug
 RUN a2enmod rewrite && service apache2 stop
