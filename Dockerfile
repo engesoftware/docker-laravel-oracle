@@ -3,6 +3,7 @@ MAINTAINER ruy.silva@engesoftware.com.br
 COPY ./oracle/. /tmp/.
 ENV LD_LIBRARY_PATH /usr/local/instantclient
 RUN apt-get update && apt-get install -y apt-utils git unzip libbz2-dev libzip-dev zip libaio-dev libxml2-dev libpng-dev \
+     && libxrender1 libfontconfig1 \
      && apt-get clean -y
 RUN unzip -o /tmp/instantclient-basic-linux.x64-12.2.0.1.0.zip -d /usr/local/ \
      && unzip -o /tmp/instantclient-sdk-linux.x64-12.2.0.1.0.zip -d /usr/local/ \
