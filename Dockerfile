@@ -39,7 +39,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN chmod +x /usr/local/bin/composer
 RUN docker-php-ext-configure zip --with-libzip
 RUN docker-php-ext-install soap zip bz2 bcmath gd intl ldap
-RUN pecl install xdebug docker-php-ext-enable xdebug
+RUN pecl install xdebug-2.9.8 docker-php-ext-enable xdebug-2.9.8
 
 RUN echo 'zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/xdebug.so' > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo 'xdebug.remote_enable=1' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
